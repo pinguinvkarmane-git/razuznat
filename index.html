@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Маленькое интервью</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas class="mood-canvas" id="moodCanvas" aria-hidden="true"></canvas>
+
+    <main class="app" id="app">
+      <section class="start-view" id="startView">
+        <p class="eyebrow">Маленькое интервью</p>
+        <h1>Поймаем из мелочей, какая ты сейчас.</h1>
+        <p class="lead">
+          Можно отвечать коротко, как в переписке. Если вопрос кажется странным —
+          значит, он, скорее всего, как раз туда попал.
+        </p>
+
+        <div class="start-actions">
+          <button class="primary-button" id="startButton" type="button">Начать</button>
+          <button class="ghost-button hidden" id="startFreshButton" type="button">
+            Начать заново
+          </button>
+        </div>
+      </section>
+
+      <section class="survey-view hidden" id="surveyView" aria-live="polite">
+        <header class="survey-header">
+          <div>
+            <p class="eyebrow" id="sectionLabel">Шаг</p>
+            <h2 id="sectionTitle">Вопрос</h2>
+          </div>
+          <p class="counter" id="questionCounter">1 / 49</p>
+        </header>
+
+        <div class="progress-track" role="progressbar" aria-label="Прогресс прохождения" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <article class="question-panel" id="questionPanel">
+          <p class="bridge-text" id="bridgeText"></p>
+          <h3 id="questionText"></h3>
+          <p class="question-note" id="questionNote"></p>
+          <div class="answer-slot" id="answerSlot"></div>
+          <p class="save-state" id="saveState">Ответ сохранен</p>
+        </article>
+
+        <footer class="survey-actions">
+          <button class="ghost-button" id="backButton" type="button">Назад</button>
+          <button class="quiet-button" id="skipButton" type="button">Пропустить</button>
+          <button class="ghost-button danger" id="resetButton" type="button">
+            Начать заново
+          </button>
+          <button class="primary-button" id="nextButton" type="button">Дальше</button>
+        </footer>
+      </section>
+
+      <section class="final-view hidden" id="finalView">
+        <p class="eyebrow">Готово</p>
+        <h2>Получился живой набор деталей про тебя.</h2>
+        <p class="lead">
+          Ниже короткое резюме. Полный набор ответов можно скачать файлом или
+          скопировать в буфер обмена.
+        </p>
+
+        <div class="final-actions">
+          <button class="primary-button" id="downloadButton" type="button">
+            Скачать ответы
+          </button>
+          <button class="ghost-button" id="copyButton" type="button">
+            Скопировать ответы
+          </button>
+          <button class="ghost-button danger" id="finalResetButton" type="button">
+            Начать заново
+          </button>
+        </div>
+
+        <p class="save-state final-copy-state" id="copyState"></p>
+        <div class="summary-grid" id="summaryGrid"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
